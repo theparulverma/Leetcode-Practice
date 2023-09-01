@@ -1,35 +1,46 @@
 class MyQueue {
     Stack<Integer> st = new Stack<>();
     Stack<Integer> helper = new Stack<>();
-
+//pop efficient method
     public MyQueue() {
         
     }
-    
     public void push(int x) {
-        st.push(x);
+        //st.push(x);
+        if(st.size()==0) st.push(x);
+        else{
+            while(st.size()>0){
+                helper.push(st.pop());
+            }
+            st.push(x);
+            while(helper.size()>0){
+                st.push(helper.pop());//means dusre vale stack mein voh value daalo st vale stack se pop kar ke jis se hamari sequence[1,2,3,4]bane
+            }
+        }
     }
     
     public int pop() {
-        while(st.size()>1){
+        /*while(st.size()>1){
             helper.push(st.pop());//hum ehlper wale stack mein push karege and st vale se pop kara kar toh jaise stack mein[1,2,3,4] then hlper stack mein [4,3,2]
         }
         int x =st.pop();
         while(helper.size()>0){
             st.push(helper.pop());
         }
-        return x;
+        return x;*/
+        return st.pop();
     }
     
     public int peek() {
-        while(st.size()>1){
+        /*while(st.size()>1){
             helper.push(st.pop());//hum ehlper wale stack mein push karege and st vale se pop kara kar toh jaise stack mein[1,2,3,4] then hlper stack mein [4,3,2]
         }
         int x =st.peek();
         while(helper.size()>0){
             st.push(helper.pop());
         }
-        return x;
+        return x;*/
+        return st.peek();
         
     }
     
