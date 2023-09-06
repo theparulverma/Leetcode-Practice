@@ -2,7 +2,6 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         //skip duplicates elements ko jis se 
         //triplet means nums[i]+nums[j]+nums[k]==0 hona chaiye phir 3 case lege equal,jada(more than),kam(lessthan) ,agar jada hua toh hum kum karne ki koshish karege sum means koii value uss se choti lenge,then kam hua toh we will increase the value so that sum will be equal to 0
-        if(nums==null || nums.length<3) return new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         for(int i =0;i<nums.length-2;i++){
