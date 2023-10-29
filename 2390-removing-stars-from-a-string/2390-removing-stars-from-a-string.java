@@ -29,8 +29,8 @@ class Solution {
         if(st.isEmpty()) return "";
         StringBuilder sb = new StringBuilder();
         while(!st.isEmpty()){
-            sb.append(st.pop());
+            sb.append(st.pop());//yeh loop pop karke elements ko sb string mein append kar raha h means jod raha h 
         }
-        return sb.reverse().toString();
+        return sb.reverse().toString();//yeh uss sb string ko reverse karke normal string mein convertt kar diya
     }
 }
