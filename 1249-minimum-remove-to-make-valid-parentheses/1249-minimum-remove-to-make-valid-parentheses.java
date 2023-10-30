@@ -4,7 +4,7 @@ class Solution {
         for(int i =0;i<s.length();i++){
             char ch = s.charAt(i);
             if(ch == '('){
-                st.push(i);
+                st.push(i);//i matlab ki index uss string ka
             }
             else if(ch == ')')
             {
@@ -18,8 +18,8 @@ class Solution {
         }
         StringBuilder sb = new StringBuilder(s);
         while(!st.isEmpty()){
-            int index = st.pop();
-            sb.delete(index, index + 1);
+            int index = st.pop();//pop karege top element stack ke
+            sb.delete(index, index + 1);//stringbuilder mein toh puri string hainaa usmein se delete karege jo hume st mein push karaye h 
         }
         return sb.toString();
     }
