@@ -13,7 +13,7 @@
  *     }
  * }
  */
-class Solution {
+/*class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
        if(root == null){
            return 0;//simple ki tree mein bass 1 node h toh height will be 0.
@@ -31,4 +31,27 @@ class Solution {
         int righth = height(root.right);
         return Math.max(lefth,righth)+1;
     }
+}*/
+class Solution{
+    public int diameterOfBinaryTree(TreeNode root){
+        return diameter(root).dt;
+    }
+     public diapair diameter(TreeNode root){
+        if(root == null){
+            return new diapair();
+        }
+        diapair ldp = diameter(root.left);
+        diapair rdp = diameter(root.right);
+        diapair sdp = new diapair();
+        int sd = ldp.ht+rdp.ht+2;
+        sdp.dt=Math.max(sd,Math.max(ldp.dt,rdp.dt));
+        sdp.ht=Math.max(ldp.ht,rdp.ht)+1;
+        return sdp;
+    }
+    class diapair{
+        int dt=0;
+        int ht=-1;
+
+    }
+
 }
