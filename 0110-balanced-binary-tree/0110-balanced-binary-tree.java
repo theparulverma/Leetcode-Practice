@@ -13,7 +13,7 @@
  *     }
  * }
  */
-class Solution {
+/*class Solution {
     public boolean isBalanced(TreeNode root) {
        return balanced(root); 
     }
@@ -23,7 +23,7 @@ class Solution {
         }
         boolean left=balanced(root.left);
         boolean right=balanced(root.right);
-        boolean sb = Math.abs(height(root.left)-height(root.right))<=1;
+        boolean sb = Math.abs(height(root.left)-height(root.right))<=1;//it means jo rooot node h 2 children ka uska check karege if it is balanced or not by calculating the difference such that it comes 1,-1,0
         return left&&right&&sb;
     }
     public int height(TreeNode root){
@@ -34,4 +34,27 @@ class Solution {
         int right= height(root.right);
         return Math.max(left,right)+1;
     }
-} 
+} */
+class Solution{
+    public boolean isBalanced(TreeNode root){
+        return calculate(root).balance;
+    }
+    public balancedpair calculate(TreeNode root){
+        if(root == null){
+            return new balancedpair();
+        }
+        balancedpair lbp=calculate(root.left);//left balanced pair
+        balancedpair rbp=calculate(root.right);//right balanced pair
+        balancedpair sbp=new balancedpair();//self balanced pair
+        sbp.ht = Math.max(lbp.ht,rbp.ht)+1;
+        boolean sb =Math.abs(lbp.ht-rbp.ht)<=1;
+        sbp.balance=lbp.balance && rbp.balance && sb;
+        return sbp;
+        
+       // return sbp;
+    }
+    class balancedpair{
+        int ht=-1;
+        boolean balance=true;
+    }
+}
